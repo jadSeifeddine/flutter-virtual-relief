@@ -2,57 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 class ProgressChart extends StatelessWidget {
-  const ProgressChart({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(16.0),
       child: Column(
         children: [
+         
           SizedBox(height: 10),
           Expanded(
             child: Row(
               children: [
-                // Y-Axis Label
                 RotatedBox(
-                  quarterTurns: -1, // Rotates text vertically
+                  quarterTurns: -1,
                   child: Text(
-                    "Progress Level", // ✅ Added Y-axis label
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    "Progress Level",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black54),
                   ),
                 ),
                 Expanded(
                   child: LineChart(
                     LineChartData(
-                      gridData: FlGridData(show: true),
+                      gridData: FlGridData(
+                        show: true,
+                        getDrawingHorizontalLine: (value) {
+                          return FlLine(
+                            color: Colors.grey.shade400, // ✅ Lighter grid lines
+                            strokeWidth: 1,
+                          );
+                        },
+                      ),
                       titlesData: FlTitlesData(
                         leftTitles: AxisTitles(
-                          sideTitles: SideTitles(
-                            showTitles: true,
-                            getTitlesWidget: (value, meta) {
-                              return Text(
-                                value.toString(),
-                                style: TextStyle(fontSize: 12),
-                              );
-                            },
-                            reservedSize: 35,
-                          ),
+                          sideTitles: SideTitles(showTitles: true, reservedSize: 40),
                         ),
                         bottomTitles: AxisTitles(
-                          sideTitles: SideTitles(
-                            showTitles: true,
-                            getTitlesWidget: (value, meta) {
-                              return Text(
-                                "Day ${value.toInt()}",
-                                style: TextStyle(fontSize: 12),
-                              );
-                            },
-                            reservedSize: 30,
-                          ),
+                          sideTitles: SideTitles(showTitles: true, reservedSize: 30),
                         ),
                       ),
-                      borderData: FlBorderData(show: true),
+                      borderData: FlBorderData(show: false),
                       lineBarsData: [
                         LineChartBarData(
                           spots: [
@@ -68,8 +56,13 @@ class ProgressChart extends StatelessWidget {
                           gradient: LinearGradient(
                             colors: [Colors.orange, Colors.deepOrange],
                           ),
-                          barWidth: 4,
-                          belowBarData: BarAreaData(show: false),
+                          barWidth: 6,
+                          belowBarData: BarAreaData(
+                            show: true,
+                            gradient: LinearGradient(
+                              colors: [Colors.orange.withOpacity(0.3), Colors.deepOrange.withOpacity(0.1)],
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -80,8 +73,8 @@ class ProgressChart extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Text(
-            "Days", // ✅ X-axis label
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+            "Days",
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black54),
           ),
         ],
       ),
