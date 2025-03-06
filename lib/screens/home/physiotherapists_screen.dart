@@ -20,6 +20,8 @@ class Physiotherapist {
 }
 
 class PhysiotherapistsScreen extends StatefulWidget {
+  const PhysiotherapistsScreen({super.key});
+
   @override
   _PhysiotherapistsScreenState createState() => _PhysiotherapistsScreenState();
 }
