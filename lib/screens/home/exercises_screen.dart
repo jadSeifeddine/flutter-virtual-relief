@@ -3,12 +3,12 @@ import '../../widgets/exercise_card.dart';
 
 class ExercisesScreen extends StatelessWidget {
   final List<Map<String, String>> exercises = [
-    {"title": "Stretching", "image": "/home/user/myapp/assets/images/exercise1.jpg"},
-    {"title": "Yoga", "image": "/home/user/myapp/assets/images/exercise2.jpg"},
-    {"title": "Strength Training", "image": "/home/user/myapp/assets/images/exercise3.jpg"},
+    {"title": "Stretching", "image": "assets/images/exercise1.jpg"},
+    {"title": "Yoga", "image": "assets/images/exercise2.jpg"},
+    {"title": "Strength Training", "image": "assets/images/exercise3.jpg"},
   ];
 
-   ExercisesScreen({super.key});
+  ExercisesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

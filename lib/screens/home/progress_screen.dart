@@ -12,10 +12,7 @@ class ProgressScreen extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.all(16.0),
-            child: Text(
-              "Your Progress Over Time",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
+            
           ),
           Expanded(child: ProgressChart()),
         ],

@@ -6,7 +6,10 @@ void navigateWithFade(BuildContext context, Widget screen) {
     PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => screen,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return FadeTransition(opacity: animation, child: child); // ✅ Smooth fade animation
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        ); // ✅ Smooth fade animation
       },
     ),
   );

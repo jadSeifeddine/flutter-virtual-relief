@@ -5,7 +5,12 @@ class ProfileOption extends StatelessWidget {
   final String title;
   final VoidCallback onTap;
 
-  const ProfileOption({super.key, required this.icon, required this.title, required this.onTap});
+  const ProfileOption({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {

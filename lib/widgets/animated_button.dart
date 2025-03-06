@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AnimatedButton extends StatefulWidget {
   final String text;
   final VoidCallback onTap;
-  AnimatedButton({required this.text, required this.onTap});
+  const AnimatedButton({super.key, required this.text, required this.onTap});
 
   @override
   _AnimatedButtonState createState() => _AnimatedButtonState();
@@ -24,17 +24,32 @@ class _AnimatedButtonState extends State<AnimatedButton> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           gradient: LinearGradient(
-            colors: _isPressed
-                ? [Colors.orange.shade600, Colors.deepOrange.shade400] // ✅ Darker when pressed
-                : [Colors.orange.shade400, Colors.deepOrange.shade300],
+            colors:
+                _isPressed
+                    ? [
+                      Colors.orange.shade600,
+                      Colors.deepOrange.shade400,
+                    ] // ✅ Darker when pressed
+                    : [Colors.orange.shade400, Colors.deepOrange.shade300],
           ),
-          boxShadow: _isPressed
-              ? []
-              : [BoxShadow(color: Colors.black26, blurRadius: 10, spreadRadius: 2)],
+          boxShadow:
+              _isPressed
+                  ? []
+                  : [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 10,
+                      spreadRadius: 2,
+                    ),
+                  ],
         ),
         child: Text(
           widget.text,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
         ),
       ),
     );
